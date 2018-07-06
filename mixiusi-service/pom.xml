@@ -17,12 +17,12 @@
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	  </properties>
 	  <dependencies>
-		  	<!-- 引入实体类 -->
-		   <!--  <dependency>
-		    	<groupId>com.mixiusi</groupId>
-				<artifactId>mixiusi-bean</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-		    </dependency> -->
+		  	<!-- 引入redis -->
+		  	 <!-- <dependency>
+		   		<groupId>com.mixiusi</groupId>
+			  	<artifactId>mixiusi-redis</artifactId>
+			  	<version>0.0.1-SNAPSHOT</version>
+			 </dependency> -->
 		    <!-- 引入接口 -->
 		    <dependency>
 		    	<groupId>com.mixiusi</groupId>
@@ -40,7 +40,7 @@
 				<artifactId>spring-boot-devtools</artifactId>
 				<scope>runtime</scope>
 			</dependency>
-			<dependency>
+			<!-- <dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<scope>runtime</scope>
@@ -50,7 +50,7 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
 				<version>1.0.26</version>
-			</dependency>
+			</dependency> -->
 		
 	    
 	  </dependencies>
