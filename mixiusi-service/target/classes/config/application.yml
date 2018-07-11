@@ -19,28 +19,33 @@ spring:
             retries: 2                           # 服务调用重试次数
 
     datasource:
-        url: jdbc:mysql://47.98.164.44:3306/coffeemachine?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-        username: root
-        password: root
-        driver-class-name: com.mysql.jdbc.Driver
-        type: com.alibaba.druid.pool.DruidDataSource
-        druid:
-            initial-size: 8
-            min-idle: 5
-            max-active: 10
-            query-timeout: 6000
-            transaction-query-timeout: 6000
-            remove-abandoned-timeout: 1800
-            filter-class-names: stat
-            filters: stat,config
-            
+        write:
+            url: jdbc:mysql://47.98.164.44:3306/coffeemachine?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+            username: root
+            password: root
+            driver-class-name: com.mysql.jdbc.Driver
+            type: com.alibaba.druid.pool.DruidDataSource
+            druid:
+                initial-size: 8
+                min-idle: 5
+                max-active: 10
+                query-timeout: 6000
+                transaction-query-timeout: 6000
+                remove-abandoned-timeout: 1800
+                filter-class-names: stat
+                filters: stat,config
+                
+        read:
+            url: jdbc:mysql://116.62.143.72:3306/coffeemachine?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+            username: mixiusi
+            password: mxs123456
+            driver-class-name: com.mysql.jdbc.Driver
+            type: com.alibaba.druid.pool.DruidDataSource
     jpa:
         hibernate:
             show-sql: true
             ddl-auto: update
             management.security.enabled: false
-            
-            
             
     jackson:
         date-format: yyyy-MM-dd HH:mm:ss
@@ -52,22 +57,16 @@ spring:
 #      username: root
 #      password: root
 #      driver-class-name: com.mysql.jdbc.Driver
-#      max-active: 20
-#      initial-size: 1
-#      min-idle: 3
-#      max-wait: 60000
-#      time-between-eviction-runs-millis: 60000
-#      min-evictable-idle-time-millis: 300000
-#      validation-query: SELECT 'x' FROM DUAL
-#      test-while-idle: true
-#      test-on-borrow: false
-#      test-on-return: false
-#      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-#      filters: stat,wall,log4j
-#      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-#      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=3000
-#      # 合并多个DruidDataSource的监控数据
-#      #spring.datasource.useGlobalDataSourceStat=true
+#       type: com.alibaba.druid.pool.DruidDataSource
+#       druid:
+#            initial-size: 8
+#            min-idle: 5
+#            max-active: 10
+#            query-timeout: 6000
+#            transaction-query-timeout: 6000
+#            remove-abandoned-timeout: 1800
+#            filter-class-names: stat
+#            filters: stat,config
 #    read:
 #      url: jdbc:mysql://127.0.0.1:3306/platform?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
 #      username: root

@@ -6,7 +6,7 @@ spring:
             name: mixiusi-redis
         base-package: com.mixiusi.service.redis  # dubbo服务发布者实现类注解@service所在的包
         registry:
-            address: 116.62.143.72:2181,192.168.0.105:2181                 # zookeeper注册中心的地址
+            address: 116.62.143.72:2181                 # zookeeper注册中心的地址
             #port: 2181                          # zookeeper注册中心的端口
         protocol:
             name: dubbo  #适合于小数据量大并发的服务调用，以及服务消费者机器数远大于服务提供者机器数的情况

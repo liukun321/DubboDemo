@@ -25,7 +25,7 @@ import com.mixiusi.bean.utils.DateUtils;
 import com.mixiusi.bean.utils.StringUtils;
 import com.mixiusi.bean.vo.OrderVo;
 import com.mixiusi.bean.vo.SaleStatisticVo;
-import com.mixiusi.repository.PayindentRepository;
+import com.mixiusi.repository.write.PayindentRepository;
 
 @Service
 public class PayindentBiz{

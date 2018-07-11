@@ -1,6 +1,8 @@
 package com.mixiusi;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,14 +11,16 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-@ConfigurationProperties(prefix = "spring.redis")//读取*.properties配置文件的内容
+@PropertySource("classpath:config/redis.properties")//读取*.properties配置文件的内容
 public class RedisConn {
+	@Value("${spring.redis.host}")
     private String host;
-
+	@Value("${spring.redis.port}")
     private int port;
-
+	@Value("${spring.redis.timeout}")
     private int timeout;
-
+	@Value("${spring.redis.password}")
+    private String password;
 
     public String getHost() {
         return host;
@@ -42,7 +46,15 @@ public class RedisConn {
         this.timeout = timeout;
     }
 
-    @Override
+    public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
     public String toString() {
         return "Redis [localhost=" + host + ", port=" + port + ", timeout=" + timeout + "]";
     }

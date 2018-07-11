@@ -2,6 +2,8 @@ package com.mixiusi.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
@@ -13,6 +15,7 @@ import com.mixiusi.biz.CoffeeInfoBiz;
 
 @Service(interfaceClass = CoffeeInfoService.class, timeout = 5000, version = "1.0.0", cluster = "failover", retries=2, loadbalance="roundrobin")
 public class CoffeeInfoServiceImpl implements CoffeeInfoService {
+	private final Logger log = LoggerFactory.getLogger(CoffeeInfoServiceImpl.class);
 	@Autowired
 	private CoffeeInfoBiz coffeeInfoBiz;
 	@Reference(version = "1.0.0")
@@ -54,9 +57,9 @@ public class CoffeeInfoServiceImpl implements CoffeeInfoService {
 		List<CoffeeInfo> result = (List<CoffeeInfo>) redisService.get(CoffeeInfoService.class.getSimpleName() + "-queryCoffeeInfo");
 		if(null == result) {
 			result = coffeeInfoBiz.queryCoffeeInfo(cvo);
-			redisService.set(CoffeeInfoService.class.getSimpleName() + "queryCoffeeInfo", result);
+			redisService.set(CoffeeInfoService.class.getSimpleName() + "-queryCoffeeInfo", result);
 		}
+		log.info("1232" + result);
 		return result;
 	}
-
 }

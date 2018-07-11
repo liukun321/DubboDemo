@@ -84,8 +84,10 @@ public class CacheService extends CachingConfigurerSupport {
     @Bean
     public JedisConnectionFactory redisConnectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory();
+        System.out.println(redisConn.getHost() + "-----" + redisConn.getPort());
         factory.setHostName(redisConn.getHost());
         factory.setPort(redisConn.getPort());
+        factory.setPassword(redisConn.getPassword());
         factory.setTimeout(redisConn.getTimeout()); // 设置连接超时时间
         return factory;
     }

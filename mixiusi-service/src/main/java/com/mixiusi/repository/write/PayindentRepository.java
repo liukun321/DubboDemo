@@ -1,4 +1,4 @@
-package com.mixiusi.repository;
+package com.mixiusi.repository.write;
 
 import java.util.List;
 

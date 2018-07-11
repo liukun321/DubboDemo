@@ -23,10 +23,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mixiusi.bean.CoffeeInfo;
 import com.mixiusi.bean.utils.StringUtils;
 import com.mixiusi.bean.vo.CoffeeVo;
-import com.mixiusi.repository.CoffeeInfoRepository;
+import com.mixiusi.repository.read.CoffeeInfoReadRepository;
+import com.mixiusi.repository.write.CoffeeInfoRepository;
 @Transactional
 @Service
 public class CoffeeInfoBiz {
+	@Autowired
+	private CoffeeInfoReadRepository coffeeInfoReadRepository;
 	@Autowired
 	private CoffeeInfoRepository coffeeInfoRepository;
 	@Autowired
@@ -37,7 +40,7 @@ public class CoffeeInfoBiz {
 	 */
 	public Page<CoffeeInfo> queryAllCoffeeInfo(Integer page, Integer size) {
 		Pageable pageable = new PageRequest(page, size, Sort.Direction.DESC, "coffeeId");
-		return coffeeInfoRepository.findAll(pageable);
+		return coffeeInfoReadRepository.findAll(pageable);
 	}
 
 
@@ -73,16 +76,15 @@ public class CoffeeInfoBiz {
 	}
 
 	public CoffeeInfo queryCoffeeInfoById(String coffeeId) {
-		// TODO Auto-generated method stub
-		return coffeeInfoRepository.findOne(coffeeId);
+		return coffeeInfoReadRepository.findOne(coffeeId);
 	}
 
 	public Long queryCoffeeInfoNumber() {
-		return coffeeInfoRepository.count();
+		return coffeeInfoReadRepository.count();
 	}
 
 	public Long queryCoffeeInfoSum(CoffeeVo cvo) {
-		 return coffeeInfoRepository.count(new Specification<CoffeeInfo>(){  
+		 return coffeeInfoReadRepository.count(new Specification<CoffeeInfo>(){  
 				@Override
 				public Predicate toPredicate(Root<CoffeeInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 					 List<Predicate> list = new ArrayList<>();
@@ -105,7 +107,7 @@ public class CoffeeInfoBiz {
 		}else {
 			pageable = new PageRequest(page, size, Sort.Direction.DESC, sort);
 		}
-        return coffeeInfoRepository.findAll(new Specification<CoffeeInfo>(){  
+        return coffeeInfoReadRepository.findAll(new Specification<CoffeeInfo>(){  
 			@Override
 			public Predicate toPredicate(Root<CoffeeInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				 List<Predicate> list = new ArrayList<>();

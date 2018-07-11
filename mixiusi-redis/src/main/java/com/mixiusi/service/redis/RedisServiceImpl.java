@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.mixiusi.service.RedisService;
 
+import redis.clients.jedis.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -81,6 +83,7 @@ public class RedisServiceImpl implements RedisService {
     public Object get(final String key) {
         Object result = null;
         ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+        System.out.println(redisTemplate + "--" + operations);
         result = operations.get(key);
         return result;
     }
@@ -128,7 +131,20 @@ public class RedisServiceImpl implements RedisService {
 
 	@Override
 	public <K, HK, HV> boolean setMap(K key, Map<HK, HV> map, Long expireTime) {
-		// TODO Auto-generated method stub
+//		redisTemplate.multi();
+//		
+//		if(!redisTemplate.opsForValue().getBit(key, offset)){//新用户
+//			redisTemplate.opsForValue().setBit(key, value, true);
+//		}
+//		redisTemplate.opsForValue().setBit(key, value, true);
+//
+//			Response<Long> total = redisTemplate.boundListOps(key).getKey();
+//			redisTemplate.exec();//事务执行
+//			total.get();
+		
+//		redisTemplate.opsForValue().getBit(key, offset);//获取bit值
+//		redisTemplate.opsForValue().setBit(key, value);
+//		redisTemplate.opsForGeo().
 		return false;
 	}
 
