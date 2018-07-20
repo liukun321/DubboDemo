@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mixiusi.bean.Payindent;
 
-@Repository("payindentRepository")
+@Repository
 public interface PayindentRepository extends JpaRepository<Payindent, String>, JpaSpecificationExecutor<Payindent> {
 	Payindent findByIndentId(String indentId);
 

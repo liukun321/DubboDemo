@@ -7,28 +7,16 @@ import java.util.Date;
  * @author liukun
  *
  */
-public class MachineStatusVo implements Serializable{
-	private Integer page;
-	private Integer size;
-	private String sort;
-	
+public class MachineStatusVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1719390806521962078L;
    	private String machineId;
 	private String machineCode;
 	private Boolean is_running;
 	private String employeeCode;
 	private String realname;
-	public String getSort() {
-		return sort;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
 	public String getMachineId() {
 		return machineId;
 	}
@@ -43,12 +31,6 @@ public class MachineStatusVo implements Serializable{
 	}
 	public String getRealname() {
 		return realname;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
 	}
 	public void setMachineId(String machineId) {
 		this.machineId = machineId;

@@ -2,22 +2,14 @@ package com.mixiusi.bean;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * 咖啡机信息
@@ -89,6 +81,9 @@ public class CoffeeMachine implements Serializable{
 	 * 咖啡机负责的运维人员编号,在创建时允许为空
 	 */
 	private String employeeCode;
+	
+	public CoffeeMachine() {
+	}
 	public String getMachineId() {
 		return machineId;
 	}

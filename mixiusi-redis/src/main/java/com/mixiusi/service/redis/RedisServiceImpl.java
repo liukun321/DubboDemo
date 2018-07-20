@@ -10,9 +10,12 @@ import com.mixiusi.service.RedisService;
 
 import redis.clients.jedis.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.support.atomic.RedisAtomicLong;
 
 /**
  * Redis服务接口实现类
@@ -24,7 +27,7 @@ public class RedisServiceImpl implements RedisService {
 
     @Autowired
     private RedisTemplate redisTemplate;
-
+    private final Logger log = LoggerFactory.getLogger(RedisServiceImpl.class);
     /**
      * 批量删除对应的value
      *
@@ -152,5 +155,22 @@ public class RedisServiceImpl implements RedisService {
 	public <K, HK, HV> Map<HK, HV> getMap(K key) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Long generateId(String key) {
+		Long result = null;
+		try {
+			ValueOperations<Serializable, Long> operations = redisTemplate.opsForValue();
+			Long value = (Long) this.get(key);
+			if(null != value) {
+				result = operations.increment(key, value);
+			}else {
+				result = operations.increment(key, 10000L);
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return result;
 	}
 }

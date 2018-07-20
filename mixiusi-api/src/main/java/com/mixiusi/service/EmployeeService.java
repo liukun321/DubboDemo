@@ -1,15 +1,18 @@
 package com.mixiusi.service;
 
 import java.util.List;
-
-import org.springframework.data.domain.Page;
+import java.util.Map;
 
 import com.mixiusi.bean.Employee;
 import com.mixiusi.bean.ErrorRecord;
 import com.mixiusi.bean.vo.WorkerVo;
-
+/**
+ * 运维人员接口
+ * @author liukun
+ *
+ */
 public interface EmployeeService {
-	Employee insertEmployee(Employee employee);
+	Employee insertEmployee(Employee employee, Map<String, Integer> maps);
 	//根据电话查询运营人员信息
 	Employee queryEmployeeByPhone(String phone);
 	//根据电话查询运营人员信息
@@ -19,11 +22,19 @@ public interface EmployeeService {
 	//删除运营人员
 	void removeEmployee(String workerId);
 	
-	Page<Employee> getAllEmployee(Integer page, Integer size);
+	public Employee login4Employee(String tel, String password);
 	
-	Page<Employee> getAllEmployeeCriteria(WorkerVo evo);
+	List<Employee> getAllEmployee(Integer page, Integer size);
+	
+	List<Employee> getAllEmployeeCriteria(WorkerVo evo);
 	
 	Long getAllEmployeeNumber(WorkerVo evo);
 	
-	boolean remiveEmployee(List<String> workerIds);
+	boolean removeEmployee(List<String> workerIds);
+	/**
+	 * 更新运维人员信息
+	 * @param em
+	 * @return 
+	 */
+	Employee updateEmployee(Employee em);
 }

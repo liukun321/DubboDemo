@@ -16,6 +16,8 @@ public class MxsConstants {
 	public static final String SUCCESS = "success";
 	
 	public static final String ERROR = "error";
+	
+	public static final String CODE = "10001";
 	//成功的状态码
 	public static final String CODE0 = "200";
 	//失败状态码1， 表示代码运行发生异常

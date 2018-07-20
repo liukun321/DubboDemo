@@ -51,8 +51,79 @@
 				<artifactId>druid</artifactId>
 				<version>1.0.26</version>
 			</dependency> -->
+			<!-- https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine -->
+			<dependency>
+			    <groupId>com.github.ben-manes.caffeine</groupId>
+			    <artifactId>caffeine</artifactId>
+			    <version>2.6.2</version>
+			</dependency>
 		
-	    
+		    <dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-cache</artifactId>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.jboss.netty/netty -->
+		<!-- <dependency>
+		    <groupId>org.jboss.netty</groupId>
+		    <artifactId>netty</artifactId>
+		    <version>3.2.4.Final</version>
+		</dependency> -->
+		
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<!-- <dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.1</version>
+		</dependency> -->
+		
+		
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.1.34</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/cn.jpush.api/jiguang-common -->
+		<dependency>
+		    <groupId>cn.jpush.api</groupId>
+		    <artifactId>jiguang-common</artifactId>
+		    <version>1.0.6</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/cn.jpush.api/jpush-client -->
+		<dependency>
+		    <groupId>cn.jpush.api</groupId>
+		    <artifactId>jpush-client</artifactId>
+		    <version>3.3.2</version>
+		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/net.guerlab/sdk-alipay-core -->
+		<dependency>
+		    <groupId>net.guerlab</groupId>
+		    <artifactId>sdk-alipay-core</artifactId>
+		    <version>1.2.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.github.wxpay/wxpay-sdk -->
+		<dependency>
+		    <groupId>com.github.wxpay</groupId>
+		    <artifactId>wxpay-sdk</artifactId>
+		    <version>0.0.3</version>
+		</dependency>	
 	  </dependencies>
 	  
 	  <build>

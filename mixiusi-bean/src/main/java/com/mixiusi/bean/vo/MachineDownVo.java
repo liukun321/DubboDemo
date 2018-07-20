@@ -2,23 +2,16 @@ package com.mixiusi.bean.vo;
 
 import java.io.Serializable;
 
-public class MachineDownVo implements Serializable{
-	private Integer page;
-	private Integer size;
-	private String sort;
+public class MachineDownVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6111563225701538511L;
 	private String machineId;
 	private String employeeCode;
 	private Integer type;
 	public Integer getType() {
 		return type;
-	}
-
-	public String getSort() {
-		return sort;
-	}
-
-	public void setSort(String sort) {
-		this.sort = sort;
 	}
 
 	public void setType(Integer type) {
@@ -50,21 +43,4 @@ public class MachineDownVo implements Serializable{
 	public void setRealName(String realName) {
 		this.realName = realName;
 	}
-
-	public Integer getPage() {
-		return page;
-	}
-
-	public Integer getSize() {
-		return size;
-	}
-
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	
 }

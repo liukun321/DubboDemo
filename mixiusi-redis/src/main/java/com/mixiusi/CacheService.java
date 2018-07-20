@@ -1,5 +1,6 @@
 package com.mixiusi;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -111,4 +114,15 @@ public class CacheService extends CachingConfigurerSupport {
         template.afterPropertiesSet();
         return template;
     }
+    
+    
+//	@Bean
+//	public RedisTemplate<String, Serializable> getDefaultRedisTemplate(
+//			RedisConnectionFactory cf, RedisSerializer<?> rs) {
+//		RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<String, Serializable>();
+//		redisTemplate.setConnectionFactory(cf);
+//		redisTemplate.setDefaultSerializer(rs);//Use jboss serialization
+//		redisTemplate.setKeySerializer(new StringRedisSerializer());//Use String serialization.
+//		return redisTemplate;
+//	}
 }

@@ -13,14 +13,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class WorkerVo implements Serializable{
+public class WorkerVo extends BaseModel implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer page;
-	private Integer size;
-	private String sort;
 	private String workerId;
 	/**
 	 * 昵称
@@ -54,24 +51,6 @@ public class WorkerVo implements Serializable{
 	}
 	public void setJoinTime(Date joinTime) {
 		this.joinTime = joinTime;
-	}
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	public String getSort() {
-		return sort;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
 	}
 	public String getWorkerId() {
 		return workerId;

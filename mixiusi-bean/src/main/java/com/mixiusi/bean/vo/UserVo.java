@@ -3,9 +3,11 @@ package com.mixiusi.bean.vo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserVo implements Serializable{
-	private Integer page;
-	private Integer size;
+public class UserVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5324370488060887591L;
 	private String userName;
 	private String email;
 	private Boolean sex;
@@ -15,12 +17,6 @@ public class UserVo implements Serializable{
 	 */
 	private Boolean isAdmin;
     private Date createDate;
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
 	public String getUserName() {
 		return userName;
 	}
@@ -35,12 +31,6 @@ public class UserVo implements Serializable{
 	}
 	public Date getCreateDate() {
 		return createDate;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;

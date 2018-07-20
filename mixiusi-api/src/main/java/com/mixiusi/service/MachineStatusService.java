@@ -1,7 +1,7 @@
 package com.mixiusi.service;
 
-import com.mixiusi.bean.MachineStatu;
+import com.mixiusi.bean.MachineStatus;
 
 public interface MachineStatusService {
-	void addMachineStatus(MachineStatu machineStatus);
+	void addMachineStatus(MachineStatus machineStatus);
 }

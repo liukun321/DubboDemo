@@ -11,15 +11,15 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-@PropertySource("classpath:config/redis.properties")//读取*.properties配置文件的内容
+@ConfigurationProperties(prefix = "spring.redis")//读取*.properties配置文件的内容
 public class RedisConn {
-	@Value("${spring.redis.host}")
+//	@Value("${spring.redis.host}")
     private String host;
-	@Value("${spring.redis.port}")
+//	@Value("${spring.redis.port}")
     private int port;
-	@Value("${spring.redis.timeout}")
+//	@Value("${spring.redis.timeout}")
     private int timeout;
-	@Value("${spring.redis.password}")
+//	@Value("${spring.redis.password}")
     private String password;
 
     public String getHost() {

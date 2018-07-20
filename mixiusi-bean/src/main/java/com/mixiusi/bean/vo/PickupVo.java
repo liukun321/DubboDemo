@@ -3,20 +3,16 @@ package com.mixiusi.bean.vo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class PickupVo implements Serializable{
-	private Integer page;
-	private Integer size;
+public class PickupVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9046350706624326633L;
 	private String indentId;
 	private String openId;
 	private String pickupCode;
 	private Date startTime;
 	private Date endTime;
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
 	public String getIndentId() {
 		return indentId;
 	}
@@ -31,12 +27,6 @@ public class PickupVo implements Serializable{
 	}
 	public Date getEndTime() {
 		return endTime;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
 	}
 	public void setIndentId(String indentId) {
 		this.indentId = indentId;

@@ -5,7 +5,14 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+/**
+ * 咖啡机物料信息
+ * 0：正常状态
+ * 1：缺料状态
+ * 如果后续机器端可以提供更多状态再继续添加
+ * @author liukun
+ *
+ */
 @Entity
 public class Material implements Serializable{
 	
@@ -27,119 +34,119 @@ public class Material implements Serializable{
 //	@Column(length = 50)
 	private String machineId;
 	/**
-	 * 普通咖啡豆
+	 * 普通咖啡豆 
 	 */
-	private Double coffeebean;
+	private Integer coffeebean;
 	/**
 	 * 低因咖啡豆
 	 */
-	private Double lcoffeebean;
+	private Integer lcoffeebean;
 	/**
 	 * 抹茶粉
 	 */
-	private Double maccha_powder;
+	private Integer maccha_powder;
 	/**
 	 * 可可粉
 	 */
-	private Double cocoa_powder;
+	private Integer cocoa_powder;
 	/**
 	 * 牛奶
 	 */
-	private Double milk;
+	private Integer milk;
 	/**
 	 * 香草糖浆
 	 */
-	private Double vanilla_sugar;
+	private Integer vanilla_sugar;
 	/**
 	 * 榛果糖浆
 	 */
-	private Double hazelnut_sugar;
+	private Integer hazelnut_sugar;
 	/**
 	 * 焦糖糖浆
 	 */
-	private Double caramel_sugar;
+	private Integer caramel_sugar;
 	/**
 	 * 纯糖浆
 	 */
-	private Double pure_sugar;
+	private Integer pure_sugar;
 	/**
 	 * 水
 	 */
-	private Double water;
+	private Integer water;
 	/**
 	 * 杯子
 	 */
-	private Double cupnum;
+	private Integer cupnum;
 	public String getMachineId() {
 		return machineId;
 	}
-	public Double getCoffeebean() {
+	public Integer getCoffeebean() {
 		return coffeebean;
 	}
-	public Double getLcoffeebean() {
+	public Integer getLcoffeebean() {
 		return lcoffeebean;
 	}
-	public Double getMaccha_powder() {
+	public Integer getMaccha_powder() {
 		return maccha_powder;
 	}
-	public Double getCocoa_powder() {
+	public Integer getCocoa_powder() {
 		return cocoa_powder;
 	}
-	public Double getMilk() {
+	public Integer getMilk() {
 		return milk;
 	}
-	public Double getVanilla_sugar() {
+	public Integer getVanilla_sugar() {
 		return vanilla_sugar;
 	}
-	public Double getHazelnut_sugar() {
+	public Integer getHazelnut_sugar() {
 		return hazelnut_sugar;
 	}
-	public Double getCaramel_sugar() {
+	public Integer getCaramel_sugar() {
 		return caramel_sugar;
 	}
-	public Double getPure_sugar() {
+	public Integer getPure_sugar() {
 		return pure_sugar;
 	}
-	public Double getWater() {
+	public Integer getWater() {
 		return water;
 	}
-	public Double getCupnum() {
+	public Integer getCupnum() {
 		return cupnum;
 	}
 	public void setMachineId(String machineId) {
 		this.machineId = machineId;
 	}
-	public void setCoffeebean(Double coffeebean) {
+	public void setCoffeebean(Integer coffeebean) {
 		this.coffeebean = coffeebean;
 	}
-	public void setLcoffeebean(Double lcoffeebean) {
+	public void setLcoffeebean(Integer lcoffeebean) {
 		this.lcoffeebean = lcoffeebean;
 	}
-	public void setMaccha_powder(Double maccha_powder) {
+	public void setMaccha_powder(Integer maccha_powder) {
 		this.maccha_powder = maccha_powder;
 	}
-	public void setCocoa_powder(Double cocoa_powder) {
+	public void setCocoa_powder(Integer cocoa_powder) {
 		this.cocoa_powder = cocoa_powder;
 	}
-	public void setMilk(Double milk) {
+	public void setMilk(Integer milk) {
 		this.milk = milk;
 	}
-	public void setVanilla_sugar(Double vanilla_sugar) {
+	public void setVanilla_sugar(Integer vanilla_sugar) {
 		this.vanilla_sugar = vanilla_sugar;
 	}
-	public void setHazelnut_sugar(Double hazelnut_sugar) {
+	public void setHazelnut_sugar(Integer hazelnut_sugar) {
 		this.hazelnut_sugar = hazelnut_sugar;
 	}
-	public void setCaramel_sugar(Double caramel_sugar) {
+	public void setCaramel_sugar(Integer caramel_sugar) {
 		this.caramel_sugar = caramel_sugar;
 	}
-	public void setPure_sugar(Double pure_sugar) {
+	public void setPure_sugar(Integer pure_sugar) {
 		this.pure_sugar = pure_sugar;
 	}
-	public void setWater(Double water) {
+	public void setWater(Integer water) {
 		this.water = water;
 	}
-	public void setCupnum(Double cupnum) {
+	public void setCupnum(Integer cupnum) {
 		this.cupnum = cupnum;
 	}
 	@Override

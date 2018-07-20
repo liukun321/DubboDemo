@@ -1,5 +1,7 @@
 package com.mixiusi.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
@@ -24,8 +26,8 @@ public class PayindentServiceImpl implements PayindentService {
 	}
 
 	@Override
-	public Page<Payindent> queryOrder(OrderVo orderVo) {
-		return payindentBiz.queryOrder(orderVo);
+	public List<Payindent> queryOrder(OrderVo orderVo) {
+		return payindentBiz.queryOrder(orderVo).getContent();
 	}
 
 	@Override
@@ -33,10 +35,10 @@ public class PayindentServiceImpl implements PayindentService {
 		return payindentBiz.querySumprice(status, payMethod);
 	}
 
-	@Override
-	public Page<Payindent> getAllOrder(Integer page, Integer size) {
-		return payindentBiz.getAllOrder(page, size);
-	}
+//	@Override
+//	public List<Payindent> getAllOrder(Integer page, Integer size) {
+//		return payindentBiz.getAllOrder(page, size).getContent();
+//	}
 
 	@Override
 	public Long querySumOrder(OrderVo orderVo) {
@@ -44,8 +46,8 @@ public class PayindentServiceImpl implements PayindentService {
 	}
 
 	@Override
-	public Page<Payindent> querySale(SaleStatisticVo ssvo) {
-		return payindentBiz.querySale(ssvo);
+	public List<Payindent> querySale(SaleStatisticVo ssvo) {
+		return payindentBiz.querySale(ssvo).getContent();
 	}
 
 	@Override
@@ -56,6 +58,11 @@ public class PayindentServiceImpl implements PayindentService {
 	@Override
 	public Long queryCoffeeSaleSum(String coffeeId) {
 		return payindentBiz.queryCoffeeSaleSum(coffeeId);
+	}
+
+	@Override
+	public Payindent addPayindent(Payindent payindent) {
+		return payindentBiz.addPayindent(payindent);
 	}
 
 }

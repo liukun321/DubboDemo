@@ -14,7 +14,7 @@ public interface UserCouponsService {
 	
 	UserCoupons queryCouponsById(Coupons coupons);
 	//查询用户优惠券信息
-	Page<UserCoupons> findAllCoupons(WechatUserVo wvo);
+	List<UserCoupons> findAllCoupons(WechatUserVo wvo);
 	//查询用户优惠券数量
 	Long findCouponsNumber(String openId);
 }

@@ -43,16 +43,6 @@ public class CoffeeInfoBiz {
 		return coffeeInfoReadRepository.findAll(pageable);
 	}
 
-
-//	@Override
-//	public Double queryCoffeeInfoForPrice(Integer coffeeId) {
-//		CoffeeInfo coffeeInfo = coffeeInfoRepository.findByCoffeeId(coffeeId);
-//		if(null != coffeeInfo) {
-//			return coffeeInfo.getPrice();
-//		}
-//		return null;
-//	}
-
 	/**
 	 * 添加咖啡品种
 	 */
@@ -119,4 +109,17 @@ public class CoffeeInfoBiz {
 			}  
         }, pageable).getContent(); 
 	}
+	
+	public List<CoffeeInfo> queryAll() {
+		List<CoffeeInfo> list = coffeeInfoReadRepository.findAll();
+		if(null == list || list.isEmpty())
+			return null;
+		return list;
+	}
+
+
+	public CoffeeInfo queryCoffeeInfoForPrice(String coffeeId) {
+		return coffeeInfoReadRepository.findOne(coffeeId);
+	}
+	
 }

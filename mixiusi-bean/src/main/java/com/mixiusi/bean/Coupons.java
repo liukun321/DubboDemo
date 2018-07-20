@@ -64,7 +64,7 @@ public class Coupons implements Serializable{
 	public String getCouponCode() {
 		return couponCode;
 	}
-	public boolean isIs_use() {
+	public boolean getIs_use() {
 		return is_use;
 	}
 	public void setId(Integer id) {

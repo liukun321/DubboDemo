@@ -1,6 +1,5 @@
 package com.mixiusi.service;
 
-import java.io.Serializable;
 import java.util.Map;
 /**
  * Redis服务接口
@@ -8,6 +7,13 @@ import java.util.Map;
  *
  */
 public interface RedisService {
+	/**
+	 * 产生唯一的编号
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	public Long generateId(final String key);
 
     /**
      * 批量删除

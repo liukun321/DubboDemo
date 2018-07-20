@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class MaterialVo implements Serializable{
-	@NotEmpty
-	private Integer page;
-	@NotEmpty
-	private Integer size;
+public class MaterialVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5180030798437639747L;
 	/**
 	 *物料盒编号 
 	 */
@@ -86,6 +86,5 @@ public class MaterialVo implements Serializable{
 				+ ", category=" + category + ", brand=" + brand + ", remainAccount=" + remainAccount + ", status="
 				+ status + "]";
 	}
-	
 	
 }

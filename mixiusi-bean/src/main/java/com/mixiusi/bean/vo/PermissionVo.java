@@ -4,18 +4,14 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class PermissionVo implements Serializable{
-	private Integer page;
-	private Integer size;
+public class PermissionVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2576335201365542502L;
 	private String name;
     private String description;
     private String url;
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
 	public String getName() {
 		return name;
 	}
@@ -24,12 +20,6 @@ public class PermissionVo implements Serializable{
 	}
 	public String getUrl() {
 		return url;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
 	}
 	public void setName(String name) {
 		this.name = name;

@@ -24,12 +24,15 @@
   </parent>
 
   <dependencies>
-	    <dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>3.8.1</version>
-		    <scope>test</scope>
-	    </dependency>
+  		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+	  <dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-test</artifactId>
+		  <scope>test</scope>
+	  </dependency>
     
     <!-- dubbo -->
     	<!-- <dependency>
@@ -49,6 +52,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency> -->
+		<!-- 
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency> -->
 		
 		<dependency>
             <groupId>com.gitee.reger</groupId>
@@ -85,7 +93,10 @@
   	<module>mixiusi-api</module>
   	<module>mixiusi-service</module>
   	<module>mixiusi-bean</module>
-  	<module>mixiusi-resource</module>
+  	
   	<module>mixiusi-redis</module>
+  	<module>mixiusi-machine</module>
+  	<module>mixiusi-worker</module>
+  	<module>mixiusi-management</module>
   </modules>
 </project>

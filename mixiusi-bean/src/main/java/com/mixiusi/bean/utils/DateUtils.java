@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DateUtils {
+import org.apache.poi.ss.usermodel.DateUtil;
+
+public class DateUtils extends DateUtil{
 	/**
 	 * 获取当前时刻的时间
 	 * @param format
@@ -69,6 +71,15 @@ public class DateUtils {
 	public static Date getPreWeek() {
 		Calendar cal = Calendar.getInstance();  
 	    cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) - 7);
+	    cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		return cal.getTime();
+	}
+	
+	public static Date getNextWeek() {
+		Calendar cal = Calendar.getInstance();  
+	    cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) + 7);
 	    cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -14,6 +16,7 @@ public class WorkerFeedback implements Serializable{
 	 */
 	private static final long serialVersionUID = 6924496078134153934L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@NotNull
 	private String workerId;
@@ -21,6 +24,8 @@ public class WorkerFeedback implements Serializable{
 	private Date createTime;
 	@NotNull
 	private String description;
+	//反馈类型
+	private Integer type;
 	public Integer getId() {
 		return id;
 	}
@@ -46,6 +51,14 @@ public class WorkerFeedback implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -53,6 +66,7 @@ public class WorkerFeedback implements Serializable{
 		result = prime * result + ((createTime == null) ? 0 : createTime.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + ((workerId == null) ? 0 : workerId.hashCode());
 		return result;
 	}
@@ -80,6 +94,11 @@ public class WorkerFeedback implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
 		if (workerId == null) {
 			if (other.workerId != null)
 				return false;
@@ -90,7 +109,7 @@ public class WorkerFeedback implements Serializable{
 	@Override
 	public String toString() {
 		return "WorkerFeedback [id=" + id + ", workerId=" + workerId + ", createTime=" + createTime + ", description="
-				+ description + "]";
+				+ description + ", type=" + type + "]";
 	}
 	
 }

@@ -12,7 +12,7 @@ public interface ErrorRecordService {
 	//无条件分页查询
 //	Page<ErrorRecord> findErrorNoCriteria(Integer page,Integer size);
 	//条件查询，并进行分页显示
-	Page<ErrorRecord> findErrorCriteria(ErrorRecordVo errorRecordVo);
+	List<ErrorRecord> findErrorCriteria(ErrorRecordVo errorRecordVo);
 	
 	List<ErrorRecord> queryAll();
 	/**
@@ -46,8 +46,25 @@ public interface ErrorRecordService {
 	 * @param downInfo
 	 * @return
 	 */
-	Page<ErrorRecord> queryErrorDown(MachineDownVo downInfo);
+	List<ErrorRecord> queryErrorDown(MachineDownVo downInfo);
 	Long queryErrorDownSum(MachineDownVo downInfo);
+	/**
+	 * 批量更新
+	 * @param ers
+	 */
+	void batchUpdate(List<ErrorRecord> ers);
+	/**
+	 * 添加错误记录
+	 * @param errorRecord
+	 * @return
+	 */
+	ErrorRecord addErrorRecord(ErrorRecord errorRecord);
+	/**
+	 * 批量删除
+	 * @param errorIds
+	 * @return
+	 */
+	Boolean removeBatch(List<Integer> errorIds);
 	
 	
 }

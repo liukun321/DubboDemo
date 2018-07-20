@@ -9,6 +9,4 @@ import com.mixiusi.bean.CoffeeInfo;
 @Repository
 public interface CoffeeInfoRepository extends JpaRepository<CoffeeInfo, String>{
 
-	CoffeeInfo findByCoffeeId(String coffeeId);
-
 }

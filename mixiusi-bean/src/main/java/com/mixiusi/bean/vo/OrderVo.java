@@ -8,10 +8,11 @@ import java.util.Date;
  * @author liukun
  *
  */
-public class OrderVo implements Serializable{
-	private Integer page;
-	private Integer size;
-	private String sort;
+public class OrderVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7101069350464900008L;
 	private String indentId;
 	/**
 	 * 咖啡机的Id
@@ -49,15 +50,6 @@ public class OrderVo implements Serializable{
 	 * 糖度 0 3 5 7 10
 	 */
 //	private List<Integer> sugar;
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public String getSort() {
-		return sort;
-	}
 	public String getIndentId() {
 		return indentId;
 	}
@@ -72,15 +64,6 @@ public class OrderVo implements Serializable{
 	}
 	public Date getEndTime() {
 		return endTime;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
 	}
 	public void setIndentId(String indentId) {
 		this.indentId = indentId;

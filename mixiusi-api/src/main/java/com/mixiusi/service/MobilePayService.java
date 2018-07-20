@@ -23,15 +23,18 @@ public interface MobilePayService {
 
 	Long querySumNumber(MobilePayVo orderVo);
 
-	Page<MobilePay> queryMobilePay(MobilePayVo mvo);
+	List<MobilePay> queryMobilePay(MobilePayVo mvo);
 
 	void updateOrder(MobilePay mp);
 
 	boolean removeMobilePay(List<String> indentIds);
 
-	Page<MobilePay> queryMobilePayDetail(MobilePayDetailVo mpdvo);
+	List<MobilePay> queryMobilePayDetail(MobilePayDetailVo mpdvo);
 
 	Long queryDetailSumNumber(MobilePayDetailVo mpdvo);
-	
-	
+	/**
+	 * 添加微信端订单
+	 * @param pay
+	 */
+	void add(MobilePay pay);
 }

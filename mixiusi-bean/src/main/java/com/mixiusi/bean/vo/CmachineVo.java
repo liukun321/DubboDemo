@@ -5,10 +5,7 @@ import java.util.Date;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class CmachineVo implements Serializable{
-	private Integer page;
-	private Integer size;
-	
+public class CmachineVo extends BaseModel implements Serializable{
 	private String machineId;
 	private Integer type;
 	private Date downTime;
@@ -85,18 +82,5 @@ public class CmachineVo implements Serializable{
 	public void setDownTime(Date downTime) {
 		this.downTime = downTime;
 	}
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	
 	
 }

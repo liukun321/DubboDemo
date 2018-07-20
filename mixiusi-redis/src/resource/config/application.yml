@@ -1,5 +1,5 @@
 server:
-    port: 8083
+    port: 8281
 spring:
     dubbo:
         application:
@@ -41,6 +41,12 @@ spring:
     jackson:
         date-format: yyyy-MM-dd HH:mm:ss
         time-zone: GMT+8
+        
+    redis:
+        host: 116.62.143.72
+        port: 6379
+        timeout: 60000
+        password: mxs88888
         
 #  datasource:
 #    write:

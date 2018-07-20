@@ -5,11 +5,11 @@ import java.util.Date;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class ErrorRecordVo implements Serializable{
-	private Integer page;
-	private Integer size;
-	private String sort;
-	
+public class ErrorRecordVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8361610350681170804L;
 	private String machineId;
 	/**
 	 * 错误开始时间
@@ -69,24 +69,4 @@ public class ErrorRecordVo implements Serializable{
 	public void setWorkerId(String workerId) {
 		this.workerId = workerId;
 	}
-	
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	public String getSort() {
-		return sort;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-	
 }

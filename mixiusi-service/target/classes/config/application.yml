@@ -1,12 +1,12 @@
 server:
-    port: 8081
+    port: 8181
 spring:
     dubbo:
         application:
             name: mixiusi-service
         base-package: com.mixiusi.service  # dubbo服务发布者实现类注解@service所在的包
         registry:
-            address: 116.62.143.72:2181,192.168.0.105:2181                 # zookeeper注册中心的地址
+            address: 116.62.143.72:2181                 # zookeeper注册中心的地址 ,192.168.0.105:2181
             #port: 2181                          # zookeeper注册中心的端口
         protocol:
             name: dubbo  #适合于小数据量大并发的服务调用，以及服务消费者机器数远大于服务提供者机器数的情况
@@ -50,6 +50,10 @@ spring:
     jackson:
         date-format: yyyy-MM-dd HH:mm:ss
         time-zone: GMT+8
+#    cache:
+#        type: caffeine
+#        caffeine:
+#            spec: maxinumSize=500,expireAfterAccess=30s
         
 #  datasource:
 #    write:

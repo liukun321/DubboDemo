@@ -24,14 +24,17 @@ public class Employee implements Serializable{
 	 */
 	private static final long serialVersionUID = 1166620198244266078L;
 	/**
-	 * 运维人员编号
+	 * 运维人员ID
 	 */
 	@Id
 	private String workerId;
 	/**
+	 * 运维人员编号
+	 */
+	private String maintainerNumber;
+	/**
 	 * 昵称
 	 */
-	@NotNull
 	private String nickname;
 	//真实姓名
 	@NotNull
@@ -50,14 +53,17 @@ public class Employee implements Serializable{
 	 * 在创建运维人员时，必须分配责任内的咖啡机
 	 * 是关联咖啡机的编号还是咖啡机的所有信息？？？？？
 	 */
-//	@OneToMany(mappedBy = "machineCode")
-//	@NotNull
-	@ElementCollection
-	private Map<String, Integer> machines;
 	//公司名称
 	private String company = "杭州米修斯科技有限公司";
 	//头像图片地址
 	private String photo;
+	
+	public String getMaintainerNumber() {
+		return maintainerNumber;
+	}
+	public void setMaintainerNumber(String maintainerNumber) {
+		this.maintainerNumber = maintainerNumber;
+	}
 	public String getWorkerId() {
 		return workerId;
 	}
@@ -108,19 +114,12 @@ public class Employee implements Serializable{
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public Map<String, Integer> getMachines() {
-		return machines;
-	}
-	public void setMachines(Map<String, Integer> machines) {
-		this.machines = machines;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((company == null) ? 0 : company.hashCode());
 		result = prime * result + ((joinTime == null) ? 0 : joinTime.hashCode());
-		result = prime * result + ((machines == null) ? 0 : machines.hashCode());
 		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
@@ -147,11 +146,6 @@ public class Employee implements Serializable{
 			if (other.joinTime != null)
 				return false;
 		} else if (!joinTime.equals(other.joinTime))
-			return false;
-		if (machines == null) {
-			if (other.machines != null)
-				return false;
-		} else if (!machines.equals(other.machines))
 			return false;
 		if (nickname == null) {
 			if (other.nickname != null)
@@ -187,9 +181,9 @@ public class Employee implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Employee [workerId=" + workerId + ", nickname=" + nickname + ", realname=" + realname + ", phoneNumber="
-				+ phoneNumber + ", password=" + password + ", joinTime=" + joinTime + ", machines=" + machines
-				+ ", company=" + company + ", photo=" + photo + "]";
+		return "Employee [workerId=" + workerId + ", maintainerNumber=" + maintainerNumber + ", nickname=" + nickname
+				+ ", realname=" + realname + ", phoneNumber=" + phoneNumber + ", password=" + password + ", joinTime="
+				+ joinTime + ", company=" + company + ", photo=" + photo + "]";
 	}
 	
 	

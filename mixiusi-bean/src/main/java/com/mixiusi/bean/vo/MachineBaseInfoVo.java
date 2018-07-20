@@ -7,10 +7,12 @@ import java.util.Date;
  * @author liukun
  *
  */
-public class MachineBaseInfoVo implements Serializable{
-	private Integer page;
-	private Integer size;
-   	private String machineId;
+public class MachineBaseInfoVo extends BaseModel implements Serializable{
+   	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6200035510957264699L;
+	private String machineId;
    	private String machineCode;
 	private Integer type;
 	private Date startTime;
@@ -52,18 +54,6 @@ public class MachineBaseInfoVo implements Serializable{
 	}
 	public void setRealname(String realname) {
 		this.realname = realname;
-	}
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
 	}
 	public String getMachineCode() {
 		return machineCode;

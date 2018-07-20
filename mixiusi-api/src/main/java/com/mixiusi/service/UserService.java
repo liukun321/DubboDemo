@@ -14,7 +14,7 @@ import com.mixiusi.bean.vo.UserVo;
  */
 public interface UserService {
 	//查询所有用户
-	public Page<User> findAll(UserVo uvo);
+	public List<User> findAll(UserVo uvo);
 	//添加用户
 	public User add(User user);
 	//删除用户

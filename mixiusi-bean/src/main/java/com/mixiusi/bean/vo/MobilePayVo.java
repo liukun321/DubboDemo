@@ -7,10 +7,11 @@ import java.util.Date;
  * @author liukun
  *
  */
-public class MobilePayVo implements Serializable{
-	private Integer page;
-	private Integer size;
-	private String sort;
+public class MobilePayVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8817798063764581692L;
 	private String indentId;
 	/**
 	 * 取货咖啡机ID
@@ -25,15 +26,6 @@ public class MobilePayVo implements Serializable{
 	private Date startTime;
 	private Date endTime;
 //	private Date finishTime;
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
-	public String getSort() {
-		return sort;
-	}
 	public String getIndentId() {
 		return indentId;
 	}
@@ -42,15 +34,6 @@ public class MobilePayVo implements Serializable{
 	}
 	public Date getEndTime() {
 		return endTime;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
-	}
-	public void setSort(String sort) {
-		this.sort = sort;
 	}
 	public void setIndentId(String indentId) {
 		this.indentId = indentId;

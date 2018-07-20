@@ -10,6 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import com.mixiusi.repository.read.PayindentReadRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +33,16 @@ public class PayindentBiz{
 	private final Logger log = LoggerFactory.getLogger(PayindentBiz.class);
 	@Autowired
 	private PayindentRepository payindentRepository;
+
+	@Autowired
+	private PayindentReadRepository payindentReadRepository;
 	/**
 	 * 删除订单-》撤销订单
 	 */
 	public boolean deletePayindent(String indentId) {
 		boolean flag = false;
 		try {
-			Payindent payindent = payindentRepository.findOne(indentId);
+			Payindent payindent = payindentReadRepository.findOne(indentId);
 			if(null == payindent) {
 				log.info("The payindent of " + indentId + " does not exist");
 			}else {
@@ -58,7 +62,7 @@ public class PayindentBiz{
 	 * 根据订单ID查询订单
 	 */
 	public Payindent queryPayindentById(String indentId) {
-		return payindentRepository.findByIndentId(indentId);
+		return payindentReadRepository.findByIndentId(indentId);
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class PayindentBiz{
 		}else {
 			pageable = new PageRequest(page, size, Sort.Direction.DESC, orderVo.getSort());
 		}
-		return payindentRepository.findAll(new Specification<Payindent>() {
+		return payindentReadRepository.findAll(new Specification<Payindent>() {
 			@Override
 			public Predicate toPredicate(Root<Payindent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> list = new ArrayList<>();
@@ -135,18 +139,18 @@ public class PayindentBiz{
 	 * 根据订单的状态和 支付方式查询订单的总金额
 	 */
 	public Double querySumprice(Integer status, Integer payMethod) {
-		return payindentRepository.querySumprice(status, payMethod);
+		return payindentReadRepository.querySumprice(status, payMethod);
 	}
 
 	public Page<Payindent> getAllOrder(Integer page, Integer size) {
 		Pageable pageable = new PageRequest(page, size, Sort.Direction.DESC, "indentId");
-		return payindentRepository.findAll(pageable); 
+		return payindentReadRepository.findAll(pageable);
 	}
 
 	public Long querySumOrder(OrderVo orderVo) {
 		
 		SimpleDateFormat sdfmat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return payindentRepository.count(new Specification<Payindent>() {
+		return payindentReadRepository.count(new Specification<Payindent>() {
 			@Override
 			public Predicate toPredicate(Root<Payindent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> list = new ArrayList<Predicate>();
@@ -214,7 +218,7 @@ public class PayindentBiz{
 		}else {
 			pageable = new PageRequest(page, size, Sort.Direction.DESC, ssvo.getSort());
 		}
-		return payindentRepository.findAll(new Specification<Payindent>() {
+		return payindentReadRepository.findAll(new Specification<Payindent>() {
 			@Override
 			public Predicate toPredicate(Root<Payindent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> list = new ArrayList<>();
@@ -280,8 +284,9 @@ public class PayindentBiz{
 			log.error(e.getMessage());
 		}
 	}
+
 	public Long querySaleSum(SaleStatisticVo ssvo) {
-		return payindentRepository.count(new Specification<Payindent>() {
+		return payindentReadRepository.count(new Specification<Payindent>() {
 			@Override
 			public Predicate toPredicate(Root<Payindent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> list = new ArrayList<>();
@@ -330,7 +335,7 @@ public class PayindentBiz{
 	}
 
 	public Long queryCoffeeSaleSum(String coffeeId) {
-		return payindentRepository.count(new Specification<Payindent>() {
+		return payindentReadRepository.count(new Specification<Payindent>() {
 			@Override
 			public Predicate toPredicate(Root<Payindent> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> list = new ArrayList<>();
@@ -341,6 +346,18 @@ public class PayindentBiz{
 			}
 		});
 	}
-	
-	
+	/**
+	 * 添加订单
+	 * @param payindent
+	 * @return
+	 */
+	public Payindent addPayindent(Payindent payindent) {
+		Payindent p = null;
+		try {
+			p = payindentRepository.save(payindent);
+		}catch(Exception e) {
+			log.info(e.getMessage() , e);
+		}
+		return p;
+	}
 }

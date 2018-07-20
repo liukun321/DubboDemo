@@ -1,7 +1,5 @@
 package com.mixiusi.service;
 
-import org.springframework.data.domain.Page;
-
 import com.mixiusi.bean.Material;
 
 public interface MaterialService {
@@ -9,7 +7,7 @@ public interface MaterialService {
 	
 	Material queryMaterial(String venderName);
 	
-	Page<Material> queryAll(Integer page, Integer size);
-
-	Page<Material> queryAllCriteria(Integer page, Integer size, String machineId);
+//	Page<Material> queryAll(Integer page, Integer size);
+//
+//	Page<Material> queryAllCriteria(Integer page, Integer size, String machineId);
 }

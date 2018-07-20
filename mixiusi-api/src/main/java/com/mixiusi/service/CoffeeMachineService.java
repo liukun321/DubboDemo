@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 
 import com.mixiusi.bean.CoffeeMachine;
+import com.mixiusi.bean.CoffeeMaterial;
 import com.mixiusi.bean.vo.CmachineVo;
 import com.mixiusi.bean.vo.MachineBaseInfoVo;
 import com.mixiusi.bean.vo.MachineStatusVo;
-
+/**
+ * 咖啡机信息操纵接口
+ * @author liukun
+ *
+ */
 public interface CoffeeMachineService {
 	/**
 	 * 根据咖啡机编号查询咖啡机
@@ -60,10 +65,13 @@ public interface CoffeeMachineService {
 	 * @param machineCodes
 	 * @return
 	 */
-	
 	boolean removeCoffeeMachines(List<String> machineCodes);
-	//分页条件查询
-	public Page<CoffeeMachine> getAllCoffeeMachineCriteria(CmachineVo mvo);
+	/**
+	 * 分页条件查询
+	 * @param mvo
+	 * @return
+	 */
+	public List<CoffeeMachine> getAllCoffeeMachineCriteria(CmachineVo mvo);
 	
 	/**
 	 * 条件查询总记录数
@@ -77,7 +85,7 @@ public interface CoffeeMachineService {
 	 * @param baseInfo
 	 * @return
 	 */
-	public Page<CoffeeMachine> queryMachineBaseInfo(MachineBaseInfoVo baseInfo);
+	public List<CoffeeMachine> queryMachineBaseInfo(MachineBaseInfoVo baseInfo);
 	/**
 	 * 咖啡机基本信息数量查询
 	 * @param baseInfo
@@ -90,8 +98,19 @@ public interface CoffeeMachineService {
 	 * @param statusInfo
 	 * @return
 	 */
-	public Page<CoffeeMachine> queryMachineStatus(MachineStatusVo statusInfo);
+	public List<CoffeeMachine> queryMachineStatus(MachineStatusVo statusInfo);
 	public Long queryMachineStatusSum(MachineStatusVo statusInfo);	
 	
 	
+	/**
+	 * 查询机器code的最大值
+	 * @return
+	 */
+	public Long generateMachineCode();
+
+	
+	/*
+	 * 根据咖啡机ID查询咖啡机
+	 */
+	public CoffeeMachine getCoffeeMachineById(String machineId);
 }

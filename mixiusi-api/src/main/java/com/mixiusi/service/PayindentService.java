@@ -1,5 +1,7 @@
 package com.mixiusi.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.mixiusi.bean.Payindent;
@@ -15,11 +17,11 @@ public interface PayindentService {
 	 * @param orderVo
 	 * @return
 	 */
-	Page<Payindent> queryOrder(OrderVo orderVo);
+	List<Payindent> queryOrder(OrderVo orderVo);
 	
 	Double querySumprice(Integer status, Integer payMethod);
 
-	Page<Payindent> getAllOrder(Integer page, Integer size);
+//	List<Payindent> getAllOrder(Integer page, Integer size);
 	
 	Long querySumOrder(OrderVo orderVo);
 	/**
@@ -27,7 +29,7 @@ public interface PayindentService {
 	 * @param ssvo
 	 * @return
 	 */
-	Page<Payindent> querySale(SaleStatisticVo ssvo);
+	List<Payindent> querySale(SaleStatisticVo ssvo);
 	/**
 	 * 销售数量
 	 * @param ssvo
@@ -40,4 +42,10 @@ public interface PayindentService {
 	 * @return
 	 */
 	Long queryCoffeeSaleSum(String coffeeId);
+	/**
+	 * 添加订单
+	 * @param payindent
+	 * @return
+	 */
+	Payindent addPayindent(Payindent payindent);
 }

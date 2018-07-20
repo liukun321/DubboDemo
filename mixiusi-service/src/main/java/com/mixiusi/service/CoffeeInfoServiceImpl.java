@@ -5,6 +5,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -13,7 +16,7 @@ import com.mixiusi.bean.CoffeeInfo;
 import com.mixiusi.bean.vo.CoffeeVo;
 import com.mixiusi.biz.CoffeeInfoBiz;
 
-@Service(interfaceClass = CoffeeInfoService.class, timeout = 5000, version = "1.0.0", cluster = "failover", retries=2, loadbalance="roundrobin")
+@Service(interfaceClass = CoffeeInfoService.class, timeout = 5000, cluster = "failover", loadbalance="roundrobin")
 public class CoffeeInfoServiceImpl implements CoffeeInfoService {
 	private final Logger log = LoggerFactory.getLogger(CoffeeInfoServiceImpl.class);
 	@Autowired
@@ -21,16 +24,18 @@ public class CoffeeInfoServiceImpl implements CoffeeInfoService {
 	@Reference(version = "1.0.0")
 	private RedisService redisService;
 	@Override
+	@CachePut
 	public CoffeeInfo addCoffeeInfo(CoffeeInfo coffeeInfo) {
 		return coffeeInfoBiz.addCoffeeInfo(coffeeInfo);
 	}
 
-	@Override
-	public Page<CoffeeInfo> queryAllCoffeeInfo(Integer page, Integer size) {
-		return coffeeInfoBiz.queryAllCoffeeInfo(page, size);
-	}
+//	@Override
+//	public List<CoffeeInfo> queryAllCoffeeInfo(Integer page, Integer size) {
+//		return coffeeInfoBiz.queryAllCoffeeInfo(page, size).getContent();
+//	}
 
 	@Override
+	@CacheEvict()
 	public boolean removeCoffeeInfo(List<String> coffeeIds) {
 		return coffeeInfoBiz.removeCoffeeInfo(coffeeIds);
 	}
@@ -61,5 +66,10 @@ public class CoffeeInfoServiceImpl implements CoffeeInfoService {
 		}
 		log.info("1232" + result);
 		return result;
+	}
+
+	@Override
+	public List<CoffeeInfo> queryAllCoffeeInfo() {
+		return coffeeInfoBiz.queryAll();
 	}
 }

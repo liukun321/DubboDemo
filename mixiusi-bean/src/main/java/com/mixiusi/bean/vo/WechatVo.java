@@ -3,9 +3,11 @@ package com.mixiusi.bean.vo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class WechatVo implements Serializable{
-	private Integer page;
-	private Integer size;
+public class WechatVo extends BaseModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 894290897603998316L;
 	private String indentId;
 	private String machineId;
 	
@@ -18,12 +20,6 @@ public class WechatVo implements Serializable{
 	
 	private Integer totalCup;
 	private Boolean over;
-	public Integer getPage() {
-		return page;
-	}
-	public Integer getSize() {
-		return size;
-	}
 	public String getIndentId() {
 		return indentId;
 	}
@@ -50,12 +46,6 @@ public class WechatVo implements Serializable{
 	}
 	public Boolean getOver() {
 		return over;
-	}
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-	public void setSize(Integer size) {
-		this.size = size;
 	}
 	public void setIndentId(String indentId) {
 		this.indentId = indentId;
